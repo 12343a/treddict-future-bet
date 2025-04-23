@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Sports } from 'lucide-react';
+import { Search, Trophy } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface TrendingTopic {
@@ -56,7 +56,7 @@ const Explore = () => {
                 <CardContent className="p-4">
                   <div className="flex items-start gap-3">
                     <div className="p-2 rounded-lg bg-treddict-purple/10">
-                      <Sports className="text-treddict-purple" size={24} />
+                      <Trophy className="text-treddict-purple" size={24} />
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">{topic.name}</h3>
