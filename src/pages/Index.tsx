@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CategoryTabs from '@/components/CategoryTabs';
 import BottomNavigation from '@/components/BottomNavigation';
 import EventCard, { EventData } from '@/components/EventCard';
@@ -8,6 +8,7 @@ import Profile from '@/components/Profile';
 import { Bell, Search, Wallet } from 'lucide-react';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('home');
   const [activeCategory, setActiveCategory] = useState('Featured');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
@@ -108,7 +109,10 @@ const Index = () => {
             <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
               <Search size={16} />
             </button>
-            <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
+            <button 
+              className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative"
+              onClick={() => navigate('/wallet')}
+            >
               <Wallet size={16} />
               <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">$500</span>
             </button>
@@ -163,4 +167,3 @@ const Index = () => {
 };
 
 export default Index;
-

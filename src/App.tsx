@@ -8,6 +8,7 @@ import Explore from "./pages/Explore";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Wallet from "./pages/Wallet";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/explore" element={<Explore />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/wallet" element={<Wallet />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
