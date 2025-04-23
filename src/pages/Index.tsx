@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import CategoryTabs from '@/components/CategoryTabs';
 import BottomNavigation from '@/components/BottomNavigation';
 import EventCard, { EventData } from '@/components/EventCard';
 import EventDetail from '@/components/EventDetail';
 import Profile from '@/components/Profile';
-import { Bell, Search } from 'lucide-react';
+import { Bell, Search, Wallet } from 'lucide-react';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -107,6 +108,10 @@ const Index = () => {
             <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
               <Search size={16} />
             </button>
+            <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
+              <Wallet size={16} />
+              <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">$500</span>
+            </button>
             <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative">
               <Bell size={16} />
               <span className="absolute top-0 right-0 w-2 h-2 bg-treddict-red rounded-full"></span>
@@ -158,3 +163,4 @@ const Index = () => {
 };
 
 export default Index;
+
