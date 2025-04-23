@@ -95,16 +95,16 @@ const Index = () => {
       {/* Header */}
       <div className="sticky top-0 z-40 bg-treddict-darker/80 backdrop-blur-lg border-b border-white/10">
         <header className="container flex justify-between items-center p-4">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red">
+          <h1 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red">
             Treddict
           </h1>
-          <div className="flex gap-3">
-            <button className="p-2.5 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
-              <Search size={20} />
+          <div className="flex gap-2">
+            <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
+              <Search size={16} />
             </button>
-            <button className="p-2.5 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative">
-              <Bell size={20} />
-              <span className="absolute top-0.5 right-0.5 w-2 h-2 bg-treddict-red rounded-full"></span>
+            <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative">
+              <Bell size={16} />
+              <span className="absolute top-0 right-0 w-2 h-2 bg-treddict-red rounded-full"></span>
             </button>
           </div>
         </header>
@@ -119,9 +119,9 @@ const Index = () => {
         </div>
       </div>
       
-      {/* Main content */}
+      {/* Main content - Added responsive grid */}
       <main className="container p-4">
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredEvents.map(event => (
             <EventCard 
               key={event.id} 
