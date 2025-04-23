@@ -61,7 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                treddict: {
+                    'blue': '#1EAEDB',
+                    'red': '#EA384C',
+                    'purple': '#8B5CF6',
+                    'dark': '#1A1F2C',
+                    'darker': '#0F1219',
+                    'card': '#222222',
+                    'card-hover': '#2A2A2A',
+                    'gray': '#555555',
+                    'light-gray': '#AAADB0'
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
