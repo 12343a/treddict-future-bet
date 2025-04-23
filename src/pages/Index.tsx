@@ -6,6 +6,7 @@ import EventCard, { EventData } from '@/components/EventCard';
 import EventDetail from '@/components/EventDetail';
 import Profile from '@/components/Profile';
 import { Bell, Search, Wallet } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -176,8 +177,8 @@ const Index = () => {
   };
 
   return (
-    <div className="bg-treddict-darker min-h-screen pb-20">
-      <div className="sticky top-0 z-40 bg-treddict-darker/80 backdrop-blur-lg border-b border-white/10">
+    <div className="bg-background min-h-screen pb-20">
+      <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
         <header className="container flex justify-between items-center p-4">
           <h1 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red">
             Treddict
@@ -197,6 +198,7 @@ const Index = () => {
               <Bell size={16} />
               <span className="absolute top-0 right-0 w-2 h-2 bg-treddict-red rounded-full"></span>
             </button>
+            <ThemeToggle />
           </div>
         </header>
         
