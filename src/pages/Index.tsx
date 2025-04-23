@@ -1,17 +1,17 @@
-
 import React, { useState } from 'react';
 import CategoryTabs from '@/components/CategoryTabs';
 import BottomNavigation from '@/components/BottomNavigation';
 import EventCard, { EventData } from '@/components/EventCard';
 import EventDetail from '@/components/EventDetail';
+import Profile from '@/components/Profile';
 import { Bell, Search } from 'lucide-react';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [activeCategory, setActiveCategory] = useState('Featured');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-  // Mock data for categories
   const categories = [
     'Featured', 
     'Sports', 
@@ -23,7 +23,6 @@ const Index = () => {
     'Science'
   ];
 
-  // Mock data for events
   const events: EventData[] = [
     {
       id: '1',
@@ -77,12 +76,10 @@ const Index = () => {
     }
   ];
 
-  // Filter events based on active category
   const filteredEvents = activeCategory === 'Featured' 
     ? events 
     : events.filter(event => event.category === activeCategory);
 
-  // Handle event card click
   const handleEventClick = (eventId: string) => {
     const event = events.find(e => e.id === eventId);
     if (event) {
@@ -90,9 +87,15 @@ const Index = () => {
     }
   };
 
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === 'profile') {
+      setIsProfileOpen(true);
+    }
+  };
+
   return (
     <div className="bg-treddict-darker min-h-screen pb-20">
-      {/* Header */}
       <div className="sticky top-0 z-40 bg-treddict-darker/80 backdrop-blur-lg border-b border-white/10">
         <header className="container flex justify-between items-center p-4">
           <h1 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red">
@@ -109,7 +112,6 @@ const Index = () => {
           </div>
         </header>
         
-        {/* Categories */}
         <div className="container px-4">
           <CategoryTabs
             categories={categories}
@@ -119,7 +121,6 @@ const Index = () => {
         </div>
       </div>
       
-      {/* Main content - Added responsive grid */}
       <main className="container p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredEvents.map(event => (
@@ -132,19 +133,24 @@ const Index = () => {
         </div>
       </main>
       
-      {/* Bottom navigation */}
       <BottomNavigation
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabChange}
       />
       
-      {/* Event detail modal */}
       {selectedEvent && (
         <EventDetail 
           event={selectedEvent} 
           onClose={() => setSelectedEvent(null)}
         />
       )}
+      <Profile 
+        isOpen={isProfileOpen} 
+        onClose={() => {
+          setIsProfileOpen(false);
+          setActiveTab('home');
+        }} 
+      />
     </div>
   );
 };
