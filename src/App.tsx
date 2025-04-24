@@ -10,7 +10,6 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Wallet from "./pages/Wallet";
-import AuthenticatedLayout from "./components/AuthenticatedLayout";
 
 const queryClient = new QueryClient();
 
@@ -22,11 +21,11 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/explore" element={<Explore />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/" element={<AuthenticatedLayout><Index /></AuthenticatedLayout>} />
-            <Route path="/explore" element={<AuthenticatedLayout><Explore /></AuthenticatedLayout>} />
-            <Route path="/wallet" element={<AuthenticatedLayout><Wallet /></AuthenticatedLayout>} />
+            <Route path="/wallet" element={<Wallet />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
