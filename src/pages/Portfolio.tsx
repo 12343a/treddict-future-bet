@@ -1,9 +1,8 @@
-
 import React from 'react';
 import NavigationBar from '@/components/NavigationBar';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Activity, ChartLineUp } from 'lucide-react';
+import { Activity, ChartLine } from 'lucide-react';
 
 const mockActiveBets = [
   { id: 1, event: 'IND vs AUS', amount: 200, potential: 400, type: 'Cricket' },
@@ -29,7 +28,7 @@ const Portfolio = () => {
               Active
             </TabsTrigger>
             <TabsTrigger value="closed" className="flex items-center gap-2">
-              <ChartLineUp className="h-4 w-4" />
+              <ChartLine className="h-4 w-4" />
               Closed
             </TabsTrigger>
           </TabsList>
