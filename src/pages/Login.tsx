@@ -14,8 +14,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-treddict-darker flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-treddict-dark border-treddict-purple/20">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50/30 via-purple-50/30 to-pink-50/30 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 backdrop-blur-xl flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-white/20 shadow-xl">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl">Welcome back</CardTitle>
           <CardDescription>Enter your credentials to login</CardDescription>
@@ -39,7 +39,7 @@ const Login = () => {
         <CardFooter className="flex flex-col space-y-2">
           <div className="text-sm text-muted-foreground text-center">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-treddict-purple hover:underline">
+            <Link to="/signup" className="text-primary hover:underline">
               Sign up here
             </Link>
           </div>
