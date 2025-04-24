@@ -106,12 +106,53 @@
     );
     animation: shine-effect 2s infinite;
   }
+
+  .neon-background {
+    @apply bg-gradient-to-br from-blue-50/30 via-purple-50/30 to-pink-50/30 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20;
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  .glowing-logo {
+    @apply text-xl md:text-2xl font-bold;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .typing-effect {
+    border-right: 2px solid;
+    animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #646cff33,
+                 0 0 20px #646cff33,
+                 0 0 30px #646cff33;
   }
+  to {
+    text-shadow: 0 0 20px #646cff66,
+                 0 0 30px #646cff66,
+                 0 0 40px #646cff66;
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: currentColor; }
 }
 
 @keyframes float {

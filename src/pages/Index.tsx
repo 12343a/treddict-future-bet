@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavigationBar from '@/components/NavigationBar';
 import { useNavigate } from 'react-router-dom';
 import CategoryCarousel from '@/components/CategoryCarousel';
 import BottomNavigation from '@/components/BottomNavigation';
@@ -179,41 +180,9 @@ const Index = () => {
 
   return (
     <div className="bg-background min-h-screen pb-20">
-      <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
-        <header className="container flex justify-between items-center p-4">
-          <h1 className="text-xl md:text-2xl font-bold logo-text">
-            Treddict
-          </h1>
-          <div className="flex items-center gap-2">
-            <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
-              <Search size={16} />
-            </button>
-            <button 
-              className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative"
-              onClick={() => navigate('/wallet')}
-            >
-              <Wallet size={16} />
-              <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">$500</span>
-            </button>
-            <ThemeToggle />
-            <div className="flex gap-2 ml-2">
-              <Button 
-                variant="outline" 
-                className="hidden sm:flex" 
-                onClick={() => navigate('/login')}
-              >
-                Login
-              </Button>
-              <Button 
-                className="hidden sm:flex" 
-                onClick={() => navigate('/signup')}
-              >
-                Sign up
-              </Button>
-            </div>
-          </div>
-        </header>
-        
+      <NavigationBar />
+      
+      <div className="sticky top-[64px] z-30 bg-background/80 backdrop-blur-lg border-b border-border">
         <div className="container px-4 overflow-hidden">
           <CategoryCarousel
             categories={categories}

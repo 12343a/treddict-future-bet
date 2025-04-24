@@ -14,7 +14,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/30 via-purple-50/30 to-pink-50/30 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 backdrop-blur-xl flex items-center justify-center p-4">
+    <div className="min-h-screen neon-background backdrop-blur-xl flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-white/20 shadow-xl">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl mb-2">Create an account</CardTitle>
@@ -24,17 +24,17 @@ const SignUp = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="username">Username</Label>
-              <Input id="username" placeholder="Enter your username" />
+              <Input id="username" placeholder="Enter your username" className="bg-white/50 dark:bg-gray-800/50" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="Enter your email" />
+              <Input id="email" type="email" placeholder="Enter your email" className="bg-white/50 dark:bg-gray-800/50" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="Create a password" />
+              <Input id="password" type="password" placeholder="Create a password" className="bg-white/50 dark:bg-gray-800/50" />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-treddict-blue hover:bg-treddict-blue/90">
               <UserPlus className="mr-2" size={16} />
               Sign Up
             </Button>
@@ -43,7 +43,7 @@ const SignUp = () => {
         <CardFooter className="flex flex-col space-y-2">
           <div className="text-sm text-muted-foreground text-center">
             Already have an account?{' '}
-            <Link to="/login" className="text-primary hover:underline">
+            <Link to="/login" className="text-treddict-blue hover:text-treddict-blue/90 hover:underline">
               Login here
             </Link>
           </div>
