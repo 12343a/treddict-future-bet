@@ -18,27 +18,29 @@ const NavigationBar = () => {
         </div>
         
         <div className="flex items-center gap-2">
-          <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
+          <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 transition-colors duration-200">
             <Search size={16} />
           </button>
           <button 
-            className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative"
+            className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 transition-colors duration-200 relative"
             onClick={() => navigate('/wallet')}
           >
             <Wallet size={16} />
-            <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">$500</span>
+            <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">
+              $500
+            </span>
           </button>
           <ThemeToggle />
           <div className="flex gap-2 ml-2">
             <Button 
               variant="outline" 
-              className="hidden sm:flex border-treddict-blue text-treddict-blue hover:bg-treddict-blue/10" 
+              className="hidden sm:flex border-treddict-blue text-treddict-blue hover:bg-treddict-blue/10 transition-colors duration-200" 
               onClick={() => navigate('/login')}
             >
               Login
             </Button>
             <Button 
-              className="hidden sm:flex bg-treddict-blue hover:bg-treddict-blue/90" 
+              className="hidden sm:flex bg-treddict-blue hover:bg-treddict-blue/90 transition-colors duration-200" 
               onClick={() => navigate('/signup')}
             >
               Sign up
