@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Search, Wallet } from 'lucide-react';
+import { Search, Wallet, Download } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
 
 const NavigationBar = () => {
@@ -22,14 +22,18 @@ const NavigationBar = () => {
             <Search size={16} />
           </button>
           <button 
-            className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 transition-colors duration-200 relative"
+            className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 transition-colors duration-200"
             onClick={() => navigate('/wallet')}
           >
             <Wallet size={16} />
-            <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">
-              $500
-            </span>
           </button>
+          <Button 
+            className="hidden sm:flex px-4 py-2 bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red hover:opacity-90 transition-all duration-300 animate-pulse-glow"
+            onClick={() => window.open('#', '_blank')}
+          >
+            <Download className="mr-2" size={16} />
+            Download App
+          </Button>
           <ThemeToggle />
           <div className="flex gap-2 ml-2">
             <Button 

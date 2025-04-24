@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import NavigationBar from '@/components/NavigationBar';
-import { useNavigate } from 'react-router-dom';
 import CategoryCarousel from '@/components/CategoryCarousel';
 import BottomNavigation from '@/components/BottomNavigation';
 import EventCard, { EventData } from '@/components/EventCard';
 import EventDetail from '@/components/EventDetail';
 import Profile from '@/components/Profile';
+import TrendingSection from '@/components/TrendingSection';
+import Footer from '@/components/Footer';
 import { Search, Wallet } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
@@ -179,7 +180,7 @@ const Index = () => {
   };
 
   return (
-    <div className="bg-background min-h-screen pb-20">
+    <div className="bg-background min-h-screen pb-20 flex flex-col">
       <NavigationBar />
       
       <div className="sticky top-[64px] z-30 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -192,7 +193,7 @@ const Index = () => {
         </div>
       </div>
       
-      <main className="container p-4">
+      <main className="container p-4 flex-grow">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredEvents.map(event => (
             <EventCard 
@@ -203,6 +204,9 @@ const Index = () => {
           ))}
         </div>
       </main>
+
+      <TrendingSection />
+      <Footer />
       
       <BottomNavigation
         activeTab={activeTab}
