@@ -11,12 +11,13 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Wallet from "./pages/Wallet";
 
+// Create a client
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark" attribute="class">
-      <div className="dark">
+  <ThemeProvider defaultTheme="dark" attribute="class">
+    <QueryClientProvider client={queryClient}>
+      <div className="min-h-screen bg-background">
         <Toaster />
         <Sonner />
         <BrowserRouter>
@@ -30,8 +31,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </div>
-    </ThemeProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;
