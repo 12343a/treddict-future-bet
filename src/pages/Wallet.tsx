@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { CreditCard, Check, X, Wallet as WalletIcon } from 'lucide-react';
 import NavigationBar from '@/components/NavigationBar';
 import { toast } from '@/components/ui/sonner';
+import { Label } from '@/components/ui/label';
 
 interface KycForm {
   fullName: string;
@@ -32,6 +33,13 @@ const Wallet = () => {
       phoneNumber: '',
       address: '',
       termsAccepted: false,
+    }
+  });
+
+  // Create a separate form for the add money section
+  const addMoneyForm = useForm({
+    defaultValues: {
+      amount: '',
     }
   });
 
@@ -220,10 +228,12 @@ const Wallet = () => {
             </CardHeader>
             <CardContent>
               <div className="mb-6">
-                <FormLabel>Amount</FormLabel>
+                {/* Replace FormLabel with regular Label component */}
+                <Label htmlFor="amount">Amount</Label>
                 <div className="flex mt-1.5">
                   <div className="flex items-center px-3 border border-r-0 rounded-l-md bg-muted">₹</div>
                   <Input 
+                    id="amount"
                     value={addAmount}
                     onChange={(e) => setAddAmount(e.target.value)}
                     type="number" 
