@@ -194,6 +194,8 @@ const Index = () => {
         </div>
       </div>
       
+      <TrendingSection />
+      
       <main className="container p-4 flex-grow">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredEvents.map(event => (
@@ -206,7 +208,6 @@ const Index = () => {
         </div>
       </main>
 
-      <TrendingSection />
       <Footer />
       
       <BottomNavigation

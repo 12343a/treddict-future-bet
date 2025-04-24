@@ -2,6 +2,7 @@
 import React from 'react';
 import { Home, Search, Zap, LineChart, User } from 'lucide-react';
 import { cn } from "@/lib/utils";
+import { useNavigate } from 'react-router-dom';
 
 interface BottomNavigationProps {
   activeTab: string;
@@ -12,13 +13,22 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
   activeTab, 
   onTabChange 
 }) => {
+  const navigate = useNavigate();
+  
   const tabs = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'explore', label: 'Explore', icon: Search },
-    { id: 'predict', label: 'Predict', icon: Zap },
-    { id: 'portfolio', label: 'Portfolio', icon: LineChart },
+    { id: 'home', label: 'Home', icon: Home, route: '/' },
+    { id: 'explore', label: 'Explore', icon: Search, route: '/explore' },
+    { id: 'predict', label: 'Predict', icon: Zap, route: '/predict' },
+    { id: 'portfolio', label: 'Portfolio', icon: LineChart, route: '/portfolio' },
     { id: 'profile', label: 'Profile', icon: User }
   ];
+
+  const handleTabClick = (tab: { id: string; route?: string }) => {
+    onTabChange(tab.id);
+    if (tab.route) {
+      navigate(tab.route);
+    }
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-treddict-darker/80 backdrop-blur-lg border-t border-white/10 pb-safe">
@@ -34,7 +44,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
                 "flex flex-col items-center justify-center w-full h-full transition-all", 
                 isActive ? "text-treddict-purple" : "text-gray-400"
               )}
-              onClick={() => onTabChange(tab.id)}
+              onClick={() => handleTabClick(tab)}
             >
               <div className={cn(
                 "flex items-center justify-center", 
