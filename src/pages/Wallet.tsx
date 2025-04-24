@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useForm } from "react-hook-form";
-import { CreditCard, Check, X, Wallet } from 'lucide-react';
+import { CreditCard, Check, X, Wallet as WalletIcon } from 'lucide-react';
 import NavigationBar from '@/components/NavigationBar';
 import { toast } from '@/components/ui/sonner';
 
@@ -255,7 +255,7 @@ const Wallet = () => {
                 >
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-3">
-                      <Wallet className="h-5 w-5 text-purple-700 dark:text-purple-400" />
+                      <WalletIcon className="h-5 w-5 text-purple-700 dark:text-purple-400" />
                     </div>
                     <span>PhonePe</span>
                   </div>
@@ -268,7 +268,7 @@ const Wallet = () => {
                 >
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
-                      <Wallet className="h-5 w-5 text-green-700 dark:text-green-400" />
+                      <WalletIcon className="h-5 w-5 text-green-700 dark:text-green-400" />
                     </div>
                     <span>Google Pay</span>
                   </div>
