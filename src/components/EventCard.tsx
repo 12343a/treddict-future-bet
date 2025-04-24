@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Clock, TrendingUp, Users } from 'lucide-react';
 import { cn } from "@/lib/utils";
@@ -30,7 +31,10 @@ const EventCard: React.FC<EventCardProps> = ({ event, onClick }) => {
 
   return (
     <div 
-      className="glass-card card-hover rounded-xl p-4 relative overflow-hidden"
+      className={cn(
+        "glass-card card-hover rounded-xl p-4 relative overflow-hidden",
+        event.isHot && "hot-card"
+      )}
       onClick={() => onClick(event.id)}
     >
       {event.isHot && (

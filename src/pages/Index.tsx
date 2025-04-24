@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategoryCarousel from '@/components/CategoryCarousel';
@@ -182,7 +181,7 @@ const Index = () => {
     <div className="bg-background min-h-screen pb-20">
       <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
         <header className="container flex justify-between items-center p-4">
-          <h1 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red">
+          <h1 className="text-xl md:text-2xl font-bold logo-text">
             Treddict
           </h1>
           <div className="flex items-center gap-2">

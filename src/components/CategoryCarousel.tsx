@@ -1,6 +1,9 @@
 
+import { useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface CategoryCarouselProps {
   categories: string[];
@@ -14,7 +17,20 @@ const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
   onCategoryChange
 }) => {
   return (
-    <Carousel className="w-full max-w-5xl mx-auto">
+    <Carousel 
+      className="w-full max-w-5xl mx-auto"
+      opts={{
+        align: "start",
+        loop: true
+      }}
+      plugins={[
+        Autoplay({
+          delay: 4000,
+          stopOnInteraction: false,
+          stopOnMouseEnter: true
+        })
+      ]}
+    >
       <CarouselContent className="-ml-2 md:-ml-4">
         {categories.map((category) => (
           <CarouselItem key={category} className="pl-2 md:pl-4 basis-1/3 md:basis-1/4 lg:basis-1/5">

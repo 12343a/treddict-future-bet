@@ -79,6 +79,33 @@
   .shimmer {
     @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
   }
+
+  .logo-text {
+    @apply bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red bg-clip-text;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+  }
+
+  .hot-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hot-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: shine-effect 2s infinite;
+  }
 }
 
 @keyframes shimmer {
@@ -107,6 +134,18 @@
   50% {
     opacity: 1;
     box-shadow: 0 0 15px 5px rgba(139, 92, 246, 0.5);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shine-effect {
+  100% {
+    left: 150%;
   }
 }
 
