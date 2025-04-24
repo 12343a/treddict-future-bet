@@ -1,12 +1,14 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CategoryTabs from '@/components/CategoryTabs';
+import CategoryCarousel from '@/components/CategoryCarousel';
 import BottomNavigation from '@/components/BottomNavigation';
 import EventCard, { EventData } from '@/components/EventCard';
 import EventDetail from '@/components/EventDetail';
 import Profile from '@/components/Profile';
-import { Bell, Search, Wallet } from 'lucide-react';
+import { Search, Wallet } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -183,7 +185,7 @@ const Index = () => {
           <h1 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red">
             Treddict
           </h1>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80">
               <Search size={16} />
             </button>
@@ -194,16 +196,27 @@ const Index = () => {
               <Wallet size={16} />
               <span className="absolute -top-1 -right-1 text-xs bg-treddict-blue text-white px-1.5 py-0.5 rounded-full">$500</span>
             </button>
-            <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 relative">
-              <Bell size={16} />
-              <span className="absolute top-0 right-0 w-2 h-2 bg-treddict-red rounded-full"></span>
-            </button>
             <ThemeToggle />
+            <div className="flex gap-2 ml-2">
+              <Button 
+                variant="outline" 
+                className="hidden sm:flex" 
+                onClick={() => navigate('/login')}
+              >
+                Login
+              </Button>
+              <Button 
+                className="hidden sm:flex" 
+                onClick={() => navigate('/signup')}
+              >
+                Sign up
+              </Button>
+            </div>
           </div>
         </header>
         
-        <div className="container px-4">
-          <CategoryTabs
+        <div className="container px-4 overflow-hidden">
+          <CategoryCarousel
             categories={categories}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
