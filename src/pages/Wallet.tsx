@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,7 +21,7 @@ interface KycForm {
 
 const Wallet = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'balance' | 'kyc' | 'add'>('balance');
+  const [activeTab, setActiveTab] = useState<'balance' | 'kyc' | 'add' | 'history'>('balance');
   const [kycVerified, setKycVerified] = useState(false);
   const [addAmount, setAddAmount] = useState('');
 
@@ -36,7 +35,6 @@ const Wallet = () => {
     }
   });
 
-  // Create a separate form for the add money section
   const addMoneyForm = useForm({
     defaultValues: {
       amount: '',
@@ -45,7 +43,6 @@ const Wallet = () => {
 
   const onKycSubmit = (data: KycForm) => {
     console.log("KYC data submitted:", data);
-    // In a real app, this would send the data to a backend
     toast.success("KYC verification request submitted successfully");
     setKycVerified(true);
   };
@@ -57,7 +54,6 @@ const Wallet = () => {
     }
     
     toast.success(`Processing payment of ₹${addAmount} via ${method}`);
-    // In a real app, this would integrate with the payment gateway
     console.log(`Adding ₹${addAmount} via ${method}`);
   };
 
@@ -80,6 +76,12 @@ const Wallet = () => {
             onClick={() => setActiveTab('add')}
           >
             Add Money
+          </Button>
+          <Button 
+            variant={activeTab === 'history' ? 'default' : 'outline'}
+            onClick={() => setActiveTab('history')}
+          >
+            History
           </Button>
           <Button 
             variant={activeTab === 'kyc' ? 'default' : 'outline'}
@@ -228,7 +230,6 @@ const Wallet = () => {
             </CardHeader>
             <CardContent>
               <div className="mb-6">
-                {/* Replace FormLabel with regular Label component */}
                 <Label htmlFor="amount">Amount</Label>
                 <div className="flex mt-1.5">
                   <div className="flex items-center px-3 border border-r-0 rounded-l-md bg-muted">₹</div>
@@ -293,6 +294,8 @@ const Wallet = () => {
             </CardFooter>
           </Card>
         )}
+        
+        {activeTab === 'history' && <TransactionHistory />}
       </div>
     </div>
   );
