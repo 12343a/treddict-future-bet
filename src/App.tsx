@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Wallet from "./pages/Wallet";
+import Portfolio from "./pages/Portfolio";
+import Predict from "./pages/Predict";
 
 // Create a client
 const queryClient = new QueryClient();

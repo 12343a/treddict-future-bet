@@ -19,14 +19,10 @@ const wicketsData = [
   { over: '16-20', probability: 75 },
 ];
 
-const config = {
-  runs: {
-    predicted: { theme: { light: '#9b87f5', dark: '#7E69AB' } },
-    actual: { theme: { light: '#6E59A5', dark: '#D6BCFA' } },
-  },
-  wickets: {
-    probability: { theme: { light: '#9b87f5', dark: '#7E69AB' } },
-  },
+const chartConfig = {
+  predicted: { theme: { light: '#9b87f5', dark: '#7E69AB' } },
+  actual: { theme: { light: '#6E59A5', dark: '#D6BCFA' } },
+  probability: { theme: { light: '#9b87f5', dark: '#7E69AB' } }
 };
 
 const Predict = () => {
@@ -42,7 +38,7 @@ const Predict = () => {
               <CardTitle>Predicted Runs per Phase</CardTitle>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={config}>
+              <ChartContainer config={chartConfig}>
                 <BarChart data={runsData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                   <XAxis dataKey="over" />
                   <YAxis />
@@ -60,7 +56,7 @@ const Predict = () => {
               <CardTitle>Wicket Probability</CardTitle>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={config}>
+              <ChartContainer config={chartConfig}>
                 <LineChart data={wicketsData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                   <XAxis dataKey="over" />
                   <YAxis />

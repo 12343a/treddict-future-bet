@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { history } from 'lucide-react';
+import { History } from 'lucide-react';
 
 const mockTransactions = [
   {
@@ -36,7 +36,7 @@ const TransactionHistory = () => {
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <history className="h-5 w-5" />
+          <History className="h-5 w-5" />
           Transaction History
         </CardTitle>
       </CardHeader>

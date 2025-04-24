@@ -10,6 +10,7 @@ import { CreditCard, Check, X, Wallet as WalletIcon } from 'lucide-react';
 import NavigationBar from '@/components/NavigationBar';
 import { toast } from '@/components/ui/sonner';
 import { Label } from '@/components/ui/label';
+import TransactionHistory from '@/components/wallet/TransactionHistory';
 
 interface KycForm {
   fullName: string;
