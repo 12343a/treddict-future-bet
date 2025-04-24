@@ -7,38 +7,59 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const TrendingSection = () => {
   const trendingItems = [
     {
-      title: "Bitcoin Rally",
-      description: "BTC surges past previous resistance levels",
-      change: "+12.5%"
+      title: "MI vs SRH",
+      description: "Mumbai's batting lineup favored",
+      change: "+8.2%"
     },
     {
-      title: "Tech Stocks",
-      description: "AI-driven companies lead market gains",
-      change: "+8.3%"
+      title: "IND vs PAK",
+      description: "Asia Cup Final predictions",
+      change: "+15.5%"
     },
     {
-      title: "Market Sentiment",
-      description: "Bullish indicators suggest strong uptrend",
-      change: "+5.7%"
+      title: "RCB vs CSK",
+      description: "Chennai's bowling strength key factor",
+      change: "+6.3%"
     },
     {
-      title: "IPL Finals",
-      description: "Match predictions trending upward",
-      change: "+15.2%"
+      title: "KKR vs LSG",
+      description: "Close contest expected",
+      change: "+4.8%"
     },
     {
-      title: "Crypto Market",
-      description: "Overall market sentiment positive",
-      change: "+9.1%"
+      title: "GT vs DC",
+      description: "Gujarat's winning streak",
+      change: "+10.2%"
+    },
+    {
+      title: "RR vs PBKS",
+      description: "Batting pitch advantage",
+      change: "+7.9%"
     }
   ];
 
+  const autoplayOptions = {
+    delay: 4000,
+    rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement,
+    direction: 'reverse' as const,
+  };
+
+  const [emblaRef] = useEmblaCarousel(
+    { 
+      loop: true,
+      direction: 'rtl'
+    },
+    [Autoplay(autoplayOptions)]
+  );
+
   return (
-    <section className="container py-8">
+    <section className="container py-6">
       <div className="flex items-start gap-6">
         <div className="flex-none w-48">
           <div className="sticky top-24 flex items-center gap-2">
@@ -47,20 +68,20 @@ const TrendingSection = () => {
           </div>
         </div>
         
-        <div className="flex-grow overflow-hidden">
+        <div className="flex-grow overflow-hidden" ref={emblaRef}>
           <Carousel className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
               {trendingItems.map((item, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3">
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
                   <Card className="glass-card card-hover h-full">
-                    <CardHeader className="p-4">
-                      <CardTitle className="flex justify-between items-center text-base">
+                    <CardHeader className="p-3">
+                      <CardTitle className="flex justify-between items-center text-sm">
                         {item.title}
-                        <span className="text-treddict-blue text-sm">{item.change}</span>
+                        <span className="text-treddict-blue text-xs">{item.change}</span>
                       </CardTitle>
-                      <CardDescription className="text-sm">{item.description}</CardDescription>
+                      <CardDescription className="text-xs">{item.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="p-4 pt-0">
+                    <CardContent className="p-3 pt-0">
                       <div className="h-1 bg-gradient-to-r from-treddict-blue to-treddict-purple rounded-full" />
                     </CardContent>
                   </Card>
