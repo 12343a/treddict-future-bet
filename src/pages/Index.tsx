@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavigationBar from '@/components/NavigationBar';
 import CategoryCarousel from '@/components/CategoryCarousel';
 import BottomNavigation from '@/components/BottomNavigation';
