@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useForm } from "react-hook-form";
-import { CreditCard, Check, X, Wallet as WalletIcon } from 'lucide-react';
+import { CreditCard, Check, Wallet as WalletIcon } from 'lucide-react';
 import NavigationBar from '@/components/NavigationBar';
 import { toast } from '@/components/ui/sonner';
 import { Label } from '@/components/ui/label';
@@ -60,16 +60,8 @@ const Wallet = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background">
       <NavigationBar />
-      
-      {/* Cross button to go back to home */}
-      <button
-        onClick={() => navigate('/')}
-        className="absolute top-16 right-4 z-50 p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
-      >
-        <X className="h-5 w-5 text-white" />
-      </button>
       
       <div className="container mx-auto p-4 pt-6">
         <h1 className="text-2xl font-bold mb-6">Your Wallet</h1>
@@ -312,4 +304,3 @@ const Wallet = () => {
 };
 
 export default Wallet;
-
