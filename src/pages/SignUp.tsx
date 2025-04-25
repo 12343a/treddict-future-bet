@@ -1,14 +1,13 @@
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { UserPlus, X } from 'lucide-react';
+import { UserPlus } from 'lucide-react';
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Authentication logic will be added after Supabase integration
@@ -17,16 +16,8 @@ const SignUp = () => {
   return (
     <div className="min-h-screen neon-background backdrop-blur-xl flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-white/20 shadow-xl">
-        <CardHeader className="space-y-1">
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl">Create an account</CardTitle>
-            <button
-              onClick={() => navigate('/')}
-              className="p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
-            >
-              <X className="h-5 w-5 text-white" />
-            </button>
-          </div>
+        <CardHeader className="space-y-1 text-center">
+          <CardTitle className="text-2xl mb-2">Create an account</CardTitle>
           <CardDescription>Enter your details to get started</CardDescription>
         </CardHeader>
         <CardContent>
