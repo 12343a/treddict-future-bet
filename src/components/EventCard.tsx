@@ -32,7 +32,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, onClick }) => {
   return (
     <div 
       className={cn(
-        "glass-card card-hover rounded-xl p-4 relative overflow-hidden",
+        "bg-black text-white glass-card card-hover rounded-xl p-4 relative overflow-hidden",
         event.isHot && "hot-card"
       )}
       onClick={() => onClick(event.id)}
@@ -46,7 +46,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, onClick }) => {
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           {event.imageUrl && (
-            <div className="w-12 h-12 rounded-lg overflow-hidden bg-treddict-dark flex-shrink-0">
+            <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-900 flex-shrink-0">
               <img 
                 src={event.imageUrl} 
                 alt={event.title} 
