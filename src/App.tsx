@@ -17,7 +17,7 @@ import Predict from "./pages/Predict";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider defaultTheme="dark" attribute="class">
+  <ThemeProvider defaultTheme="dark" attribute="class" enableSystem>
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background">
         <Toaster />
