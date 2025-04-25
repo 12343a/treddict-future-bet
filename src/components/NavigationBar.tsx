@@ -1,14 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Search, Wallet, Download } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
+import BackToHomeButton from './BackToHomeButton';
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   
   return (
     <header className="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-lg border-b border-border">
+      {!isHomePage && <BackToHomeButton />}
       <div className="container flex justify-between items-center p-4">
         <div className="flex items-center space-x-4">
           <h1 className="glowing-logo typing-effect logo-text">

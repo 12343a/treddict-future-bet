@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp } from 'lucide-react';
@@ -45,31 +44,28 @@ const TrendingSection = () => {
   ];
 
   const autoplayOptions = {
-    delay: 4000,
+    delay: 2000,
     rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement,
-    direction: 'reverse' as const,
   };
 
   const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
-      direction: 'rtl'
+      direction: 'rtl',
     },
     [Autoplay(autoplayOptions)]
   );
 
   return (
     <section className="container py-6">
-      <div className="flex items-start gap-6">
-        <div className="flex-none w-48">
-          <div className="sticky top-24 flex items-center gap-2">
-            <TrendingUp className="text-treddict-purple" size={24} />
-            <h2 className="text-2xl font-bold text-gradient-primary">Trending</h2>
-          </div>
+      <div className="flex flex-col">
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingUp className="text-treddict-purple" size={24} />
+          <h2 className="text-2xl font-bold text-gradient-primary">Trending</h2>
         </div>
         
-        <div className="flex-grow overflow-hidden" ref={emblaRef}>
-          <Carousel className="w-full">
+        <div className="w-full overflow-hidden" ref={emblaRef}>
+          <Carousel>
             <CarouselContent className="-ml-2 md:-ml-4">
               {trendingItems.map((item, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
