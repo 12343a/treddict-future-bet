@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { UserPlus } from 'lucide-react';
+import BackToHomeButton from '@/components/BackToHomeButton';
 
 const SignUp = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,7 +17,10 @@ const SignUp = () => {
   return (
     <div className="min-h-screen neon-background backdrop-blur-xl flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-white/20 shadow-xl">
-        <CardHeader className="space-y-1 text-center">
+        <CardHeader className="space-y-1 text-center relative">
+          <div className="absolute right-0 top-0">
+            <BackToHomeButton />
+          </div>
           <CardTitle className="text-2xl mb-2">Create an account</CardTitle>
           <CardDescription>Enter your details to get started</CardDescription>
         </CardHeader>

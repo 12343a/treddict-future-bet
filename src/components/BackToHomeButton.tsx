@@ -9,7 +9,7 @@ const BackToHomeButton = () => {
   return (
     <button
       onClick={() => navigate('/')}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
+      className="p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
     >
       <X className="h-5 w-5 text-white" />
     </button>
@@ -17,3 +17,4 @@ const BackToHomeButton = () => {
 };
 
 export default BackToHomeButton;
+

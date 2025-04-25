@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +11,7 @@ import NavigationBar from '@/components/NavigationBar';
 import { toast } from '@/components/ui/sonner';
 import { Label } from '@/components/ui/label';
 import TransactionHistory from '@/components/wallet/TransactionHistory';
+import BackToHomeButton from '@/components/BackToHomeButton';
 
 interface KycForm {
   fullName: string;
@@ -64,33 +64,9 @@ const Wallet = () => {
       <NavigationBar />
       
       <div className="container mx-auto p-4 pt-6">
-        <h1 className="text-2xl font-bold mb-6">Your Wallet</h1>
-        
-        <div className="flex space-x-2 mb-6">
-          <Button 
-            variant={activeTab === 'balance' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('balance')}
-          >
-            Balance
-          </Button>
-          <Button 
-            variant={activeTab === 'add' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('add')}
-          >
-            Add Money
-          </Button>
-          <Button 
-            variant={activeTab === 'history' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('history')}
-          >
-            History
-          </Button>
-          <Button 
-            variant={activeTab === 'kyc' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('kyc')}
-          >
-            KYC Verification {kycVerified && <Check className="ml-1 h-4 w-4 text-green-500" />}
-          </Button>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold">Your Wallet</h1>
+          <BackToHomeButton />
         </div>
         
         {activeTab === 'balance' && (

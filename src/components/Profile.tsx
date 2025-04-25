@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { UserRound, Settings, LogOut, Edit, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import BackToHomeButton from '@/components/BackToHomeButton';
 
 interface ProfileProps {
   isOpen: boolean;
@@ -23,7 +23,10 @@ const Profile: React.FC<ProfileProps> = ({ isOpen, onClose }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="bg-treddict-dark border-treddict-purple/20 max-w-2xl">
         <div className="space-y-6">
-          {/* Profile Header */}
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold">Profile</h2>
+            <BackToHomeButton />
+          </div>
           <div className="flex items-center space-x-6">
             <div className="relative">
               <div className="w-24 h-24 rounded-full bg-treddict-purple/20 flex items-center justify-center">
@@ -50,7 +53,6 @@ const Profile: React.FC<ProfileProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Stats Grid */}
           <div className="grid grid-cols-4 gap-4">
             <div className="glass-card p-4 text-center">
               <div className="text-2xl font-bold text-treddict-purple">47</div>
@@ -70,7 +72,6 @@ const Profile: React.FC<ProfileProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Recent Activity */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Recent Activity</h3>
             <div className="space-y-2">
@@ -91,7 +92,6 @@ const Profile: React.FC<ProfileProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Profile Actions */}
           <div className="space-y-2">
             <button className="w-full glass-card p-3 flex items-center justify-between hover:bg-white/5">
               <span className="flex items-center gap-2">
