@@ -73,15 +73,15 @@ const TrendingSection = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {trendingItems.map((item, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
-                  <Card className="glass-card card-hover h-full">
-                    <CardHeader className="p-3">
-                      <CardTitle className="flex justify-between items-center text-sm">
+                  <Card className="bg-black h-24 rounded-lg glass-card card-hover">
+                    <CardHeader className="p-2">
+                      <CardTitle className="flex justify-between items-center text-sm text-white">
                         {item.title}
                         <span className="text-treddict-blue text-xs">{item.change}</span>
                       </CardTitle>
-                      <CardDescription className="text-xs">{item.description}</CardDescription>
+                      <CardDescription className="text-xs text-gray-300">{item.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="p-3 pt-0">
+                    <CardContent className="p-2 pt-0">
                       <div className="h-1 bg-gradient-to-r from-treddict-blue to-treddict-purple rounded-full" />
                     </CardContent>
                   </Card>

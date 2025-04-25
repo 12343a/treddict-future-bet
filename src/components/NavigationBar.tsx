@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -19,13 +18,13 @@ const NavigationBar = () => {
         
         <div className="flex items-center gap-2">
           <button className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 transition-colors duration-200">
-            <Search size={16} />
+            <Search size={16} className="text-white" />
           </button>
           <button 
             className="p-2 rounded-full bg-treddict-dark hover:bg-treddict-dark/80 transition-colors duration-200"
             onClick={() => navigate('/wallet')}
           >
-            <Wallet size={16} />
+            <Wallet size={16} className="text-white" />
           </button>
           <Button 
             className="hidden sm:flex px-4 py-2 bg-gradient-to-r from-treddict-blue via-treddict-purple to-treddict-red hover:opacity-90 transition-all duration-300 animate-pulse-glow"
