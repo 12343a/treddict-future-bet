@@ -61,35 +61,15 @@ const Wallet = () => {
   return (
     <div className="min-h-screen bg-background">
       <NavigationBar />
-      
       <div className="container mx-auto p-4 pt-6">
-        <h1 className="text-2xl font-bold mb-6">Your Wallet</h1>
-        
-        <div className="flex space-x-2 mb-6">
-          <Button 
-            variant={activeTab === 'balance' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('balance')}
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-2xl font-bold">Your Wallet</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
           >
-            Balance
-          </Button>
-          <Button 
-            variant={activeTab === 'add' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('add')}
-          >
-            Add Money
-          </Button>
-          <Button 
-            variant={activeTab === 'history' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('history')}
-          >
-            History
-          </Button>
-          <Button 
-            variant={activeTab === 'kyc' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('kyc')}
-          >
-            KYC Verification {kycVerified && <Check className="ml-1 h-4 w-4 text-green-500" />}
-          </Button>
+            <X className="h-5 w-5 text-white" />
+          </button>
         </div>
         
         {activeTab === 'balance' && (

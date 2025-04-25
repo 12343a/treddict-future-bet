@@ -1,13 +1,14 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { LogIn } from 'lucide-react';
+import { LogIn, X } from 'lucide-react';
 
 const Login = () => {
+  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Authentication logic will be added after Supabase integration
@@ -16,8 +17,16 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50/30 via-purple-50/30 to-pink-50/30 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 backdrop-blur-xl flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm border-white/20 shadow-xl">
-        <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl">Welcome back</CardTitle>
+        <CardHeader className="space-y-1">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-2xl">Welcome back</CardTitle>
+            <button
+              onClick={() => navigate('/')}
+              className="p-2 rounded-full bg-red-500 hover:bg-red-600 transition-colors duration-200"
+            >
+              <X className="h-5 w-5 text-white" />
+            </button>
+          </div>
           <CardDescription>Enter your credentials to login</CardDescription>
         </CardHeader>
         <CardContent>
